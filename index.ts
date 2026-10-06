@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
 import * as readline from 'readline';
+import * as log4js from 'log4js';
 import { parse as parseDate, format } from 'date-fns';
 
 interface RowData {
@@ -88,7 +89,7 @@ class SupportBank {
             console.log(`${user.name} has to pay ${moneyToGive} and has to recieve ${moneyToGet}`);
         }
     }
-    
+
     list(name: string) {
         const filteredTransactions = this.transactions.filter((trans) => trans.from == name || trans.to == name);
         
@@ -97,6 +98,7 @@ class SupportBank {
         }
     }
 }
+
 async function main() {
     const bank = new SupportBank([], []);
     await bank.from_csv("Transactions2014.csv");
@@ -136,4 +138,12 @@ async function main() {
     }
 }
 
+log4js.configure({
+    appenders: {
+        file: { type: 'fileSync', filename: 'logs/debug.log' }
+    },
+    categories: {
+        default: { appenders: ['file'], level: 'debug'}
+    }
+});
 main();
