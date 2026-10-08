@@ -151,3 +151,4 @@ vite.config.ts.timestamp-*
 #Project files
 Transactions2014.csv
 DodgyTransactions2015.csv
+Transactions.json
