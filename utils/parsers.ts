@@ -76,8 +76,7 @@ export const fromJson = (supportBank : SupportBank, jsonPath: string): Promise<v
 const excelSerialToDate = (serial: string): string => {
     const serialNum = parseInt(serial);
     const excelEpoch = new Date(1900, 0, 1);
-    const daysOffset = serialNum - 2; // Excel has a bug where it treats 1900 as a leap year
-    const date = new Date(excelEpoch.getTime() + daysOffset * 24 * 60 * 60 * 1000);
+    const date = new Date(excelEpoch.getTime() + serialNum * 24 * 60 * 60 * 1000);
     return format(date, 'dd/MM/yyyy');
 }
 
