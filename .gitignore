@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+#Project files
+Transactions2014.csv
+DodgyTransactions2015.csv
+Transactions.json
+Transactions2012.xml
