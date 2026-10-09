@@ -9,7 +9,7 @@ const logger = log4js.getLogger();
 export async function main() {
     logger.info('Starting Support Bank application');
     const bank = new SupportBank([], []);
-    await loadDataFromFiles(bank, ["Transactions2014.csv", "DodgyTransactions2015.csv"]);
+    await loadDataFromFiles(bank, ["Transactions2014.csv", "DodgyTransactions2015.csv", "Transactions.json", "Transactions2012.xml"]);
 
     const rl = readline.createInterface({
         input: process.stdin,
